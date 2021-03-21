@@ -25,7 +25,6 @@
     max-width: 560px;
     color:#fff;
     font-size: 19px;
-    padding-bottom: 50px;
 }
 .link{
     outline: none;
@@ -71,30 +70,31 @@ a, .link {
     display: inline-block;
     padding: 12px 32px;
     font-size: 18px;
-    font-family: Slate W01 Medium,Helvetica,Arial,sans-serif!important;
-    line-height: 1!important;
     text-align: center;
-    text-decoration: none;
     border: 2px solid currentColor;
     border-radius: 50px;
     cursor: pointer;
-    transition: all .25s ease-in-out;
-}
-.btn:hover{
-    background:#fff;
-}
-.btn.btn-primary {
+    transition-duration: 0.4s;
     color: #fff;
     border-color: #2eaff0;
     background: #2eaff0;
-}
-.btn.btn-white {
-    border-color: #fff;
-    color: rgba(255,255,255,.75);
     background-color: transparent;
+    border-color: #fff;
 }
-button#go :hover{
-    background-color: #4c9ed9;
-    color: #ffffff;
+.btn:hover{
+    background-color:#fff;
+    color:#4c9ed9;
 }
+
+.letsTalk{
+    width: 100vw;
+
+}
+
+.letsTalkTransition{
+    @extend .letsTalk;
+    transform: translate(-90vw, 0px);
+    transition: transform 1s;
+}
+
 
