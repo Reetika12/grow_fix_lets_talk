@@ -49,6 +49,7 @@ class LetsTalkfirstPage extends Component {
             <div className="mainPage">
                 <Grid className={isButtonClick ? "letsTalkTransition" : "letsTalk"} container spacing={3}>
                     <Grid className="letsTalkGridStyle" item xs={12} sm={6}>
+                    
                     </Grid>
                     <Grid className="letsTalkSecond" item xs={12} sm={6}>
                         <div className="inner-first-screen">
