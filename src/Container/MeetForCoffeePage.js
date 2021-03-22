@@ -9,38 +9,38 @@ import ToastMessage from '../Components/ToastMessage'
             email:"",
             textArea:"",
             openToast: false,
-            toastMsg: ''
+            toastMsg: '',
          }
      }
      checkForValidation = () =>{
-        //  let { name, email, textArea} = this.state
-          if(this.state.name.length < 1)
+         let { name, email, textArea} = this.state
+          if(!name)
           {
-              console.log("name")
               this.setState({
                   toastMsg:"name field is required",
                   openToast: true
               })
+              return;
           }
-         if (this.state.email.length < 1)
+         if (!email)
          {
              this.setState({
                  toastMsg: "Email field is required",
                  openToast: true
              })
+             return;
          }
-         if (this.state.textArea.length < 1) {
+         if (!textArea) {
              this.setState({
                  toastMsg: "please write your enquiry",
                  openToast: true
              })
+             return;
          }
-         else{
-             this.setState({
-                 toastMsg: "your details posted successfully",
-                 openToast: true
-             })
-         }
+        this.setState({
+            toastMsg: "your details posted successfully",
+            openToast: true
+        })
      }
      handleNameChange = (event) =>{
          this.setState({
@@ -51,8 +51,8 @@ import ToastMessage from '../Components/ToastMessage'
      handleCloseToast = () => {
          this.setState({ openToast: false, toastMsg: '' })
      }
+   
     render() {
-        const {isButtonClicked} = this.props;
         let { name, email, textArea, toastMsg, openToast} = this.state
         return (
             <div className="meetForCoffePattern">
@@ -62,13 +62,15 @@ import ToastMessage from '../Components/ToastMessage'
                         <h4 className="margin-xxs-bottom">Personal details</h4>
                         <input 
                            type="text" 
-                           className="inputStyle" 
-                           onChange={e => this.setState({ name: e.target.value})}
+                            className="inputStyle"
+                            value={name}
+                            onChange={e => this.setState({ name: e.target.value})}
                            placeholder="Name" id="name"/>
                         <input 
                            type="text"
                            className="inputStyle"  
                            placeholder="Email" 
+                            value={email}
                            onChange={e => this.setState({ email: e.target.value })}
                            id="Email" />
                     </div>
