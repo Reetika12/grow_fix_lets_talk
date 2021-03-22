@@ -50,21 +50,21 @@ class YourGreatProject extends Component {
         }
         if (!company) {
             this.setState({
-                toastMsg: "Email field is required",
+                toastMsg: "company name is required",
                 openToast: true
             })
             return;
         }
         if (!Budget) {
             this.setState({
-                toastMsg: "Email field is required",
+                toastMsg: "Budget field is required",
                 openToast: true
             })
             return;
         }
         if (!textArea) {
             this.setState({
-                toastMsg: "please write your enquiry",
+                toastMsg: "please tell us about project",
                 openToast: true
             })
             return;
@@ -83,14 +83,19 @@ class YourGreatProject extends Component {
     handleCloseToast = () => {
         this.setState({ openToast: false, toastMsg: '' })
     }
-
+    handlePageChange = () => {
+        this.props.handlePageChange("main")
+    }
     render() {
         let { name, email, textArea, company, Budget, toastMsg, openToast } = this.state
         return (
-            <div style={{ display: "flex", flexDirection: "column", background: "#58c7ff",color:"#fff"}}>
+            <div className="yourProjectStyle">
+                <div className="backButtonStyle" onClick={this.handlePageChange}>
+                    <img className="backButtonImg" src="https://www.searchpng.com/wp-content/uploads/2019/02/Back-Arrow-Icon-PNG-715x715.png" alt="" />
+                </div>
                 <h2 className="leftBarstyle">Let's craft your product.</h2>
-                <Grid style={{ alignItems: 'baseline', padding:"0px 80px"}}container spacing={3}>
-                    <Grid style={{ alignItems: "center",height: "120vh", overflow: "hidden",display:"flex",flexDirection:"column"}} item xs={12} sm={3}>
+                <Grid className="conatinerStyle" container spacing={3}>
+                    <Grid className="gridLayout" item xs={12} sm={3}>
                         <h4 className="margin-xxs-bottom">Timeframe</h4>
                         <RadioGroup aria-label="radiotype" name="radiotype" onChange={this.handleRadioTagOption}>
                             <FormControlLabel id="great_project" value="great_project" control={<CustomRadio />} label="1 month" />
@@ -117,7 +122,7 @@ class YourGreatProject extends Component {
                             </label>
                         </div>
                     </Grid>
-                    <Grid style={{ overflow: "hidden", height: "120vh" }} item xs={12} sm={5}>
+                    <Grid item xs={12} sm={5}>
                         <div className="personalDetails">
                             <h4 className="margin-xxs-bottom">Personal details</h4>
                             <input
@@ -149,7 +154,7 @@ class YourGreatProject extends Component {
                         </div>
                         
                     </Grid>
-                    <Grid style={{ overflow: "hidden", height: "120vh" }} item xs={12} sm={4}>
+                    <Grid style={{ overflow: "hidden" }} item xs={12} sm={4}>
                         <div className="sendEnquiryPattern">
                             <textarea
                                 className="textArea"

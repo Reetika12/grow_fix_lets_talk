@@ -50,11 +50,16 @@ class PlanAVideoCall extends Component {
     handleCloseToast = () => {
         this.setState({ openToast: false, toastMsg: '' })
     }
-
+    handlePageChange = () => {
+        this.props.handlePageChange("main")
+    }
     render() {
         let { name, email, textArea, toastMsg, openToast } = this.state
         return (
             <div className="meetForCoffePattern">
+                <div className="backButtonStyle" onClick={this.handlePageChange}>
+                    <img className="backButtonImg" src="https://www.searchpng.com/wp-content/uploads/2019/02/Back-Arrow-Icon-PNG-715x715.png" alt="" />
+                </div>
                 <h2 className="weLikeVideoCall">Let's plan a video call!🎥</h2>
                 <div className="parentCoffee">
                     <div className="personalDetails">

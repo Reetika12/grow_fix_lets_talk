@@ -25,51 +25,32 @@ class LetsTalkfirstPage extends Component {
         super(props);
         this.state = {
             selectedItem: "",
-            isButtonClick: false
+            isButtonClick: false,
+            nextDisable: false
         }
     }
     handleRadioTagOption = (event) => {
-        // let { selectedItem } = this.state
-        // selectedEditRow.course_type = event.target.value
         this.setState({
-            selectedItem: event.target.value
-            
-            // disableSubmit: false
+            selectedItem: event.target.value,
+            nextDisable:true
         })
     }
     gotoSelectedPage = () => {
-        // let { selectedItem } = this.state
+        let { selectedItem } = this.state
         this.setState({
             isButtonClick: true
         })
-        // console.log("selected", selectedItem)
-        // if (selectedItem === "meet_for_coffee") {
-        //     this.props.history.push("/meetForCofee")
-        // }
+        this.props.handlePageChange(selectedItem)
     }
 
-    selectedPages = () => {
-        let { selectedItem, isButtonClick } = this.state;
-        if (selectedItem === "meet_for_coffee" && isButtonClick)
-        {
-            console.log("here")
-            return <MeetForCoffeePage isButtonClick={isButtonClick} />
-        }
-        // if(!isButtonClick) return;
-        // switch(selectedItem){
-        //     case "meet_for_coffee":
-        //         <MeetForCoffeePage isButtonClick={isButtonClick} />
-        //         break;
-        // }
-    }
     render() {
-        let { isButtonClick } = this.state
+        let { isButtonClick, nextDisable} = this.state
         return (
             <div className="mainPage">
                 <Grid className={isButtonClick ? "letsTalkTransition" : "letsTalk"} container spacing={3}>
-                    <Grid style={{ background: "black", height: "100vh", overflow: "hidden" }} item xs={12} sm={6}>
+                    <Grid className="letsTalkGridStyle" item xs={12} sm={6}>
                     </Grid>
-                    <Grid style={{ background: "#58c7ff", color: "#fff", height: "100vh", overflow: "hidden" }} item xs={12} sm={6}>
+                    <Grid className="letsTalkSecond" item xs={12} sm={6}>
                         <div className="inner-first-screen">
                             <h2 className="overlay-name">Let’s talk.</h2>
                             <p className="ptag-style">
@@ -87,12 +68,13 @@ class LetsTalkfirstPage extends Component {
                                     <FormControlLabel id="birds_and_bees" value="birds_and_bees" control={<CustomRadio />} label="Birds and bees" />
                                     <FormControlLabel id="plan_a_video_call" value="plan_a_video_call" control={<CustomRadio />} label="Plan a video call" />
                                 </RadioGroup>
-                                <button type="button" id="go" onClick={this.gotoSelectedPage} className="btn btn-primary btn-white">Next</button>
+                                <div style={{marginTop:"15px"}}>
+                                    <button type="button" id="go" disabled={!nextDisable} onClick={this.gotoSelectedPage} className="btn">Next</button>
+                                </div>
                             </div>
                         </div>
                     </Grid>
                 </Grid>
-                {this.selectedPages()}
             </div>
         )
     }
