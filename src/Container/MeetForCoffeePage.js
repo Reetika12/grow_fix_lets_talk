@@ -1,17 +1,25 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid';
+import './Styles/LetsTalk.scss';
 
  class MeetForCoffeePage extends Component {
     render() {
         const {isButtonClicked} = this.props;
         return (
-                <div  >
-                    {/* <Grid style={{ background: "#58c7ff", color: "#fff", height: "100vh", overflow: "hidden" }} > */}
-                        <h2>We like coffee too! ☕️</h2>
-                    {/* </Grid> */}
+            <div className="meetForCoffePattern">
+                <h2 className="weLikeCofee">We like coffee too! ☕️</h2>
+                <div className="parentCoffee">
+                    <div className="personalDetails">
+                        <h4 className="margin-xxs-bottom">Personal details</h4>
+                        <input type="text" className="inputStyle"  placeholder="Name" id="name"/>
+                        <input type="text" className="inputStyle"  placeholder="Email" id="Email" />
+                    </div>
+                    <div className="sendEnquiryPattern">
+                        <textarea className="textArea" required="required" name="purpose" placeholder="What do you want to talk about?"></textarea> 
+                        <button type="button" id="go" onClick={this.gotoSelectedPage} className="SendEnquiry">Send Enquiry</button>
+                    </div>
                 </div>
+            </div>
         )
     }
 }
-//meetForCoffee
 export default MeetForCoffeePage
