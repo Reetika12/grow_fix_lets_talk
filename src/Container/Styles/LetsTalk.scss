@@ -114,7 +114,7 @@ a, .link {
     background: #58c7ff;
     color: #fff;
     transition: all .5s ease -in -out;
-    height: 120vh;
+    height: 140vh;
     // overflow-Y: hidden;
     display: flex;
     flex-direction: column;
@@ -126,13 +126,14 @@ a, .link {
 }
 .inputStyle{
     width: 70%;
-    background: rgba(38,169,234,.5);
+    background-color: rgba(38,169,234,.5);
     border: none;
     padding: 20px 16px;
     outline: none;
     border-radius: 2px;
     opacity: 1;
     margin-bottom: 24px;
+    color:#fff;
 }
 ::placeholder {
   color: #fff;

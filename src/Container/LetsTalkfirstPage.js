@@ -28,7 +28,7 @@ class LetsTalkfirstPage extends Component {
             isButtonClick: false
         }
     }
-    handleChangeCourseType = (event) => {
+    handleRadioTagOption = (event) => {
         // let { selectedItem } = this.state
         // selectedEditRow.course_type = event.target.value
         this.setState({
@@ -81,7 +81,7 @@ class LetsTalkfirstPage extends Component {
                             </p>
                             <div className="radioTagOptions">
                                 <h4 className="margin-xxs-bottom">Let's talk about</h4>
-                                <RadioGroup aria-label="coursetype" name="coursetype" onChange={this.handleChangeCourseType}>
+                                <RadioGroup aria-label="coursetype" name="coursetype" onChange={this.handleRadioTagOption}>
                                     <FormControlLabel id="great_project" value="great_project" control={<CustomRadio />} label="Your great project" />
                                     <FormControlLabel id="meet_for_coffee" value="meet_for_coffee" control={<CustomRadio />} label="Meeting for a coffee" />
                                     <FormControlLabel id="birds_and_bees" value="birds_and_bees" control={<CustomRadio />} label="Birds and bees" />
